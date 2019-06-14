@@ -11,14 +11,14 @@ const io = require('socket.io')(server);
 
 // Creates the database conection.
 mongoose.connect('mongodb+srv://admin:as1mn1@cluster0-d6osd.mongodb.net/test?retryWrites=true&w=majority', {
-    useNewUrlParser: true
+  useNewUrlParser: true,
 });
 
 // Create own middleware to include io to all application routes in the project.
 app.use((req, res, next) => {
-    req.io = io;
+  req.io = io;
 
-    next();
+  next();
 });
 
 // Enable cors for all domains.
